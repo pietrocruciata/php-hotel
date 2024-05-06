@@ -41,8 +41,9 @@ $hotels = [
 ];
 
 $select = $_GET['parking'];
+$valutation = intval($_GET['valutation']);
 
-var_dump($select)
+
 // var_dump($valutation)
 ?>
 <!DOCTYPE html>
@@ -60,17 +61,27 @@ var_dump($select)
 
     <form action="">
         <div class="d-flex p-2 gap-4">
-            <div>parking</div>
+            <div>parking:</div>
 
             <select type="text" name="parking" id="parking">
                 <option value="booth"></option>
                 <option value="si">si</option>
                 <option value="no">no</option>
             </select>
+            <div>valutazione hotel:</div>
+            <select type="number" name="valutation" id="valutation" >
+                <option value="none"></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+
+                </select>
 
 
 
-            <button>INVIA</button>
+            <button>RICERCA HOTEL</button>
 
         </div>
 
@@ -95,19 +106,19 @@ var_dump($select)
             $distance_to_center = $hotel['distance_to_center'];
         ?>
             <tbody>
-                <tr class="<?php if ($select === 'si' && $parking === true) {
+                <tr class="<?php if ($select === 'si' && $parking === true && $valutation === $vote) {
                                 echo 'd-none';
                             } else {
                                 echo '';
                             }
 
-                            if ($select === 'no' && $parking === false) {
+                            if ($select === 'no' && $parking === false && $valutation === $vote) {
                                 echo '';
                             } else {
                                 echo 'd-none';
                             }
 
-                            if($select === 'booth' ){
+                            if ($select === 'booth') {
                                 echo 'd-block';
                             }
                             ?>">
@@ -141,5 +152,3 @@ var_dump($select)
 </body>
 
 </html>
-
-<!-- $select === 'si' && $parking === true  || $select === 'no' && $parking === false ? '' : 'd-none' -->
