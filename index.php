@@ -48,18 +48,19 @@ $hotels = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3a1d17ee5d.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Hotel</title>
 </head>
 
 <body>
-<table class="table">
-<thead>
+    <table class="table">
+        <thead>
             <tr>
                 <th scope="col">name</th>
                 <th scope="col">description</th>
                 <th scope="col">parking</th>
-                <th scope="col">vote</th>
+                <th scope="col">vote/5</th>
                 <th scope="col">distance to center</th>
             </tr>
         </thead>
@@ -72,8 +73,6 @@ $hotels = [
             $vote = $hotel['vote'];
             $distance_to_center = $hotel['distance_to_center'];
         ?>
-    
-        
             <tbody>
                 <tr>
                     <th scope="row">
@@ -83,7 +82,12 @@ $hotels = [
                         <?php echo $description ?>
                     </td>
                     <td>
-                        <?php echo $parking ?>
+                        <?php if($parking === true){
+                            echo '<i class="fa-solid fa-check text-success"></i>';
+                        } else{
+                            echo '<i class="fa-solid fa-xmark text-danger"></i>';
+                        }
+                        ?>
                     </td>
                     <td>
                         <?php echo $vote ?>
@@ -92,14 +96,12 @@ $hotels = [
                         <?php echo $distance_to_center ?>
                     </td>
                 </tr>
-         
+
             </tbody>
-            <?php
+        <?php
         }
         ?>
     </table>
 </body>
 
 </html>
-
-
