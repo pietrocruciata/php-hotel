@@ -40,7 +40,10 @@ $hotels = [
 
 ];
 
+$select = $_GET['parking'];
+$valutation = $_GET['valutation'];
 
+// var_dump($valutation)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +57,24 @@ $hotels = [
 </head>
 
 <body>
+
+    <form action="">
+        <div class="d-flex p-2 gap-4">
+            <div>parking</div>
+
+            <select type="text" name="parking" id="parking">
+                <option value=""></option>
+                <option value="si">si</option>
+                <option value="no">no</option>
+            </select>
+            <input type="number" name="valutation" id="valutation">
+
+
+            <button>INVIA</button>
+
+        </div>
+
+    </form>
     <table class="table">
         <thead>
             <tr>
@@ -74,7 +95,7 @@ $hotels = [
             $distance_to_center = $hotel['distance_to_center'];
         ?>
             <tbody>
-                <tr>
+                <tr class="<?php echo $select === 'si' && $parking === true && $valutation === $vote || $select === 'no' && $parking === false ? '' : 'd-none' ?>">
                     <th scope="row">
                         <?php echo $name ?>
                     </th>
@@ -82,9 +103,9 @@ $hotels = [
                         <?php echo $description ?>
                     </td>
                     <td>
-                        <?php if($parking === true){
+                        <?php if ($parking === true) {
                             echo '<i class="fa-solid fa-check text-success"></i>';
-                        } else{
+                        } else {
                             echo '<i class="fa-solid fa-xmark text-danger"></i>';
                         }
                         ?>
