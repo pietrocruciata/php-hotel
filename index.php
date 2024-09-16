@@ -40,8 +40,8 @@ $hotels = [
 
 ];
 
-$select = $_GET['parking'];
-$valutation = intval($_GET['valutation']);
+$select = $_GET['parking'] ?? null;
+$valutation = $_GET['valutation'] ?? null;
 
 
 // var_dump($valutation)
@@ -69,7 +69,7 @@ $valutation = intval($_GET['valutation']);
                 <option value="no">no</option>
             </select>
             <div>valutazione hotel:</div>
-            <select type="number" name="valutation" id="valutation" >
+            <select type="number" name="valutation" id="valutation">
                 <option value="none"></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -77,7 +77,7 @@ $valutation = intval($_GET['valutation']);
                 <option value="4">4</option>
                 <option value="5">5</option>
 
-                </select>
+            </select>
 
 
 
